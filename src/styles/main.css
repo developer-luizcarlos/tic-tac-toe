@@ -1,3 +1,5 @@
+@import url(./variables.css);
+
 *,
 *::before,
 *::after {
@@ -10,4 +12,33 @@ body,
 html {
   height: 100vh;
   width: 100vw;
+}
+
+body {
+  background-color: var(--body-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 8px 12px;
+  height: 500px;
+  width: 500px;
+}
+
+.game-board__block {
+  background-color: var(--game-board-block-bg);
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  color: var(--game-board-block-color);
 }

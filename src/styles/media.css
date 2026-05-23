@@ -1,0 +1,21 @@
+@import url(./variables.css);
+
+@media only screen and (max-width: 625px) {
+  .game-board {
+    height: 400px;
+    min-width: 350px;
+    width: 90%;
+  }
+}
+
+@media only screen and (hover: hover) {
+  .game-board__block:hover {
+    background-color: var(--game-board-block-bg-hover);
+  }
+}
+
+@media only screen and (prefers-reduced-motion: no-preference) {
+  .game-board__block {
+    transition: all 0.3s ease;
+  }
+}
