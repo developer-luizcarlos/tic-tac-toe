@@ -1,0 +1,102 @@
+import { gameData } from "../gameData.js";
+import hasGameAWinner from "./hasGameAWinner.js";
+import getGameBoardSegments from "./getGameBoardSegments.js";
+import * as elements from "../dom/domElements.js";
+
+export default function playMachine() {
+  const segments = getGameBoardSegments();
+
+  const userSymbol = gameData.getGameSymbol;
+  const machineSymbol = gameData.getGameSymbol === "x" ? "o" : "x";
+
+  const userUniqueMarkedSegment = getSegmentMarkedGivenTimes(1, userSymbol);
+  const userDoubleMarkedSegment = getSegmentMarkedGivenTimes(2, userSymbol);
+  const machineDoubleMarkedSegment = getSegmentMarkedGivenTimes(
+    2,
+    machineSymbol,
+  );
+
+  let blockIndexToBeMarked;
+
+  if (machineDoubleMarkedSegment) {
+    const machineUnmarkedBlock = getUnmarkedBlockInSegment(
+      machineDoubleMarkedSegment,
+    );
+
+    blockIndexToBeMarked = getBlockIndex(machineUnmarkedBlock);
+  } else if (userDoubleMarkedSegment) {
+    const userUnmarkedBlock = getUnmarkedBlockInSegment(
+      userDoubleMarkedSegment,
+    );
+
+    blockIndexToBeMarked = getBlockIndex(userUnmarkedBlock);
+  } else {
+    const randomUnmarkedBlockIndex = getRandomUnmarkedBlockIndex();
+
+    if (randomUnmarkedBlockIndex !== undefined) {
+      blockIndexToBeMarked = randomUnmarkedBlockIndex;
+    }
+  }
+
+  if (blockIndexToBeMarked !== undefined) {
+    elements.gameBlocks[blockIndexToBeMarked].textContent = machineSymbol;
+  }
+
+  if (hasGameAWinner()) {
+    alert(`${machineSymbol} wins!`);
+  }
+}
+
+/**
+ * @param {Number} times
+ */
+function getSegmentMarkedGivenTimes(times, symbol) {
+  const segments = getGameBoardSegments();
+
+  const markedSegment = segments.find((segment) => {
+    const markedBlocks = segment.filter((block) => {
+      return block.textContent.trim() !== "";
+    });
+
+    const hasMarkedBlocksSameText = markedBlocks.every((block) => {
+      return block.textContent.trim() === symbol;
+    });
+
+    return hasMarkedBlocksSameText && markedBlocks.length === times;
+  });
+
+  return markedSegment;
+}
+
+/**
+ * @param {NodeListOf<HTMLElement>}
+ */
+function getUnmarkedBlockInSegment(segment) {
+  return [...segment].find((block) => {
+    return block.textContent.trim() === "";
+  });
+}
+
+/**
+ * @param {HTMLElement} block;
+ */
+function getBlockIndex(block) {
+  return [...elements.gameBlocks].findIndex((element) => {
+    return element === block;
+  });
+}
+
+function getRandomUnmarkedBlockIndex() {
+  const unmarkedBlocks = [...elements.gameBlocks].filter((block) => {
+    return block.textContent.trim() === "";
+  });
+
+  const unmarkedBlocksIndexes = unmarkedBlocks.map((block) => {
+    return getBlockIndex(block);
+  });
+
+  const randomIndex = Math.floor(Math.random() * unmarkedBlocksIndexes.length);
+  const randomUnmarkedBlockIndex = unmarkedBlocksIndexes[randomIndex];
+
+  return randomUnmarkedBlockIndex;
+}
