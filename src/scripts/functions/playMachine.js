@@ -4,12 +4,9 @@ import getGameBoardSegments from "./getGameBoardSegments.js";
 import * as elements from "../dom/domElements.js";
 
 export default function playMachine() {
-  const segments = getGameBoardSegments();
-
   const userSymbol = gameData.getGameSymbol;
   const machineSymbol = gameData.getGameSymbol === "x" ? "o" : "x";
 
-  const userUniqueMarkedSegment = getSegmentMarkedGivenTimes(1, userSymbol);
   const userDoubleMarkedSegment = getSegmentMarkedGivenTimes(2, userSymbol);
   const machineDoubleMarkedSegment = getSegmentMarkedGivenTimes(
     2,
