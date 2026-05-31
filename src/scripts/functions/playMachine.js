@@ -44,6 +44,8 @@ export default function playMachine() {
 
   if (hasGameAWinner()) {
     alert(`${machineSymbol} wins!`);
+
+    return;
   }
 }
 
