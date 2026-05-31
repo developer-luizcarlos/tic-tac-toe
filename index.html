@@ -9,7 +9,15 @@
     <script type="module" src="./src/scripts/main.js"></script>
   </head>
   <body>
-    <div class="game-screen">
+    <div class="choose-symbol-screen">
+      <h2 class="choose-symbol-screen__title">Choose a Symbol</h2>
+      <div class="symbols-container">
+        <div class="symbol" tabindex="1">X</div>
+        <div class="symbol" tabindex="2">O</div>
+      </div>
+      <button class="btn btn--start-game">Start game</button>
+    </div>
+    <div class="game-screen game-screen--hidden">
       <div class="game-board">
         <div class="game-board__block"></div>
         <div class="game-board__block"></div>

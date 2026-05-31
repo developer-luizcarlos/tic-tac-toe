@@ -5,7 +5,7 @@ import * as elements from "../dom/domElements.js";
 
 export default function playMachine() {
   const userSymbol = gameData.getGameSymbol;
-  const machineSymbol = gameData.getGameSymbol === "x" ? "o" : "x";
+  const machineSymbol = gameData.machineSymbol;
 
   const userDoubleMarkedSegment = getSegmentMarkedGivenTimes(2, userSymbol);
   const machineDoubleMarkedSegment = getSegmentMarkedGivenTimes(

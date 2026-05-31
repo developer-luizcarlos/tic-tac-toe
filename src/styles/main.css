@@ -23,6 +23,62 @@ body {
   font-family: sans-serif;
 }
 
+.btn {
+  background-color: none;
+  cursor: pointer;
+  display: block;
+  font-family: inherit;
+  font-size: 1rem;
+  border: none;
+  border-radius: 3px;
+  padding: 0.75rem 0.8rem;
+}
+
+.choose-symbol-screen--hidden {
+  display: none;
+}
+
+.choose-symbol-screen__title {
+  text-align: center;
+}
+
+.symbols-container {
+  margin-block: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.symbol {
+  border: 8px solid var(--symbol-border-color);
+  border-radius: 5px;
+  background-color: var(--symbol-bg);
+  cursor: pointer;
+  height: 230px;
+  width: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 60px;
+  transition: all 0.3s ease;
+}
+
+.symbol--choosen {
+  border-color: var(--symbol-choosen-border-color);
+}
+
+.btn--start-game {
+  background-color: var(--btn-start-game-bg);
+  color: var(--btn-start-game-color);
+  font-weight: bold;
+  width: 100%;
+}
+
+.game-screen--hidden {
+  display: none;
+}
+
 .game-board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

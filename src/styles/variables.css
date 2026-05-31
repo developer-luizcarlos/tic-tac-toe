@@ -1,6 +1,13 @@
 :root {
+  --btn-start-game-bg: rgb(38, 90, 188);
+  --btn-start-game-bg-hover: rgb(33, 73, 146);
+  --btn-start-game-color: rgb(224, 215, 215);
   --body-bg: rgb(252, 242, 242);
   --game-board-block-bg: rgb(204, 195, 195);
   --game-board-block-bg-hover: rgb(180, 176, 176);
   --game-board-block-color: rgb(67, 59, 59);
+  --symbol-bg: rgb(220, 220, 220);
+  --symbol-border-color: rgb(175, 165, 165);
+  --symbol-bg-hover: rgb(176, 184, 190);
+  --symbol-choosen-border-color: rgb(102, 121, 217);
 }
