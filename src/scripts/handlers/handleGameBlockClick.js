@@ -6,6 +6,7 @@ import playMachine from "../functions/playMachine.js";
 import isGameEndedWithDraw from "../functions/isGameEndedWithDraw.js";
 import isGameEnded from "../functions/isGameEnded.js";
 import hasGameStarted from "../functions/hasGameStarted.js";
+import highlightWinnerSegment from "../functions/highlightWinnerSegment.js";
 
 export default function handleGameBlockClick(event) {
   if (isGameEnded()) return;
@@ -25,6 +26,8 @@ export default function handleGameBlockClick(event) {
       const winner = getWinner();
 
       alert(`${winner} wins!`);
+
+      highlightWinnerSegment();
     } else if (isGameEndedWithDraw()) {
       alert("Draw");
     }

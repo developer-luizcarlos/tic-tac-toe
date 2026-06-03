@@ -108,6 +108,10 @@ body {
   color: var(--game-board-block-color);
 }
 
+.game-board__block--highlighted {
+  background-color: var(--game-board-block-bg-highlighted);
+}
+
 .game-screen__btn-container {
   display: flex;
   justify-content: center;

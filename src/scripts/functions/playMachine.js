@@ -3,6 +3,7 @@ import hasGameAWinner from "./hasGameAWinner.js";
 import getGameBoardSegments from "./getGameBoardSegments.js";
 import * as elements from "../dom/domElements.js";
 import isGameEnded from "../functions/isGameEnded.js";
+import highlightWinnerSegment from "../functions/highlightWinnerSegment.js";
 
 export default function playMachine() {
   if (isGameEnded()) return;
@@ -45,6 +46,7 @@ export default function playMachine() {
   if (isGameEnded()) {
     if (hasGameAWinner()) {
       alert(`${machineSymbol} wins!`);
+      highlightWinnerSegment();
     }
 
     elements.btnPlayAgain.classList.remove("btn--hidden");
