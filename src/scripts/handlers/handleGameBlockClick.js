@@ -4,24 +4,34 @@ import hasGameAWinner from "../functions/hasGameAWinner.js";
 import getWinner from "../functions/getWinner.js";
 import playMachine from "../functions/playMachine.js";
 import isGameEndedWithDraw from "../functions/isGameEndedWithDraw.js";
+import isGameEnded from "../functions/isGameEnded.js";
+import hasGameStarted from "../functions/hasGameStarted.js";
 
 export default function handleGameBlockClick(event) {
-  const isBlockMarked = event.target.textContent.trim() !== "";
+  if (isGameEnded()) return;
 
-  if (hasGameAWinner()) return;
+  const isBlockMarked = event.target.textContent.trim() !== "";
 
   if (isBlockMarked) return;
 
   event.target.textContent = gameData.getGameSymbol;
 
-  if (hasGameAWinner()) {
-    const winner = getWinner();
+  if (hasGameStarted()) {
+    elements.btnRestart.classList.remove("btn--hidden");
+  }
 
-    alert(`${winner} wins!`);
+  if (isGameEnded()) {
+    if (hasGameAWinner()) {
+      const winner = getWinner();
 
-    return;
-  } else if (isGameEndedWithDraw()) {
-    alert("Draw");
+      alert(`${winner} wins!`);
+    } else if (isGameEndedWithDraw()) {
+      alert("Draw");
+    }
+
+    elements.btnPlayAgain.classList.remove("btn--hidden");
+
+    elements.btnRestart.classList.add("btn--hidden");
 
     return;
   }

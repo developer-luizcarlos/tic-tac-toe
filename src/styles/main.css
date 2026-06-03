@@ -34,6 +34,10 @@ body {
   padding: 0.75rem 0.8rem;
 }
 
+.btn--hidden {
+  display: none;
+}
+
 .choose-symbol-screen--hidden {
   display: none;
 }
@@ -75,6 +79,11 @@ body {
   width: 100%;
 }
 
+.game-screen {
+  display: grid;
+  gap: 20px;
+}
+
 .game-screen--hidden {
   display: none;
 }
@@ -97,4 +106,25 @@ body {
   justify-content: center;
   font-size: 60px;
   color: var(--game-board-block-color);
+}
+
+.game-screen__btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn--play-again {
+  background-color: var(--btn-play-again-bg);
+  color: var(--btn-play-again-color);
+}
+
+.btn--restart {
+  background-color: var(--btn-restart-bg);
+  color: var(--btn-restart-color);
+}
+
+.btn--back-to-choose-screen {
+  background-color: rgb(210, 24, 24);
+  color: var(--btn-back-to-choose-screen-color);
 }

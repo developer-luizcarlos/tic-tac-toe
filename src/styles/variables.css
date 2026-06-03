@@ -2,6 +2,15 @@
   --btn-start-game-bg: rgb(38, 90, 188);
   --btn-start-game-bg-hover: rgb(33, 73, 146);
   --btn-start-game-color: rgb(224, 215, 215);
+  --btn-play-again-bg: rgb(38, 90, 188);
+  --btn-play-again-bg-hover: rgb(33, 73, 146);
+  --btn-play-again-color: rgb(224, 215, 215);
+  --btn-restart-bg: rgb(38, 90, 188);
+  --btn-restart-bg-hover: rgb(33, 73, 146);
+  --btn-restart-color: rgb(224, 215, 215);
+  --btn-back-to-choose-screen-bg: rgb(210, 24, 24);
+  --btn-back-to-choose-screen-bg-hover: rgb(168, 39, 39);
+  --btn-back-to-choose-screen-color: rgb(224, 215, 215);
   --body-bg: rgb(252, 242, 242);
   --game-board-block-bg: rgb(204, 195, 195);
   --game-board-block-bg-hover: rgb(180, 176, 176);

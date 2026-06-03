@@ -2,8 +2,11 @@ import { gameData } from "../gameData.js";
 import hasGameAWinner from "./hasGameAWinner.js";
 import getGameBoardSegments from "./getGameBoardSegments.js";
 import * as elements from "../dom/domElements.js";
+import isGameEnded from "../functions/isGameEnded.js";
 
 export default function playMachine() {
+  if (isGameEnded()) return;
+
   const userSymbol = gameData.getGameSymbol;
   const machineSymbol = gameData.machineSymbol;
 
@@ -39,8 +42,14 @@ export default function playMachine() {
     elements.gameBlocks[blockIndexToBeMarked].textContent = machineSymbol;
   }
 
-  if (hasGameAWinner()) {
-    alert(`${machineSymbol} wins!`);
+  if (isGameEnded()) {
+    if (hasGameAWinner()) {
+      alert(`${machineSymbol} wins!`);
+    }
+
+    elements.btnPlayAgain.classList.remove("btn--hidden");
+
+    elements.btnRestart.classList.add("btn--hidden");
 
     return;
   }

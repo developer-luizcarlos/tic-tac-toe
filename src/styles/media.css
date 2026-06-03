@@ -34,6 +34,18 @@
   .game-board__block:hover {
     background-color: var(--game-board-block-bg-hover);
   }
+
+  .btn--play-again:hover {
+    background-color: var(--btn-play-again-bg-hover);
+  }
+
+  .btn--restart:hover {
+    background-color: var(--btn-restart-bg-hover);
+  }
+
+  .btn--back-to-choose-screen:hover {
+    background-color: var(--btn-back-to-choose-screen-bg-hover);
+  }
 }
 
 @media only screen and (prefers-reduced-motion: no-preference) {
@@ -46,6 +58,18 @@
   }
 
   .game-board__block {
+    transition: all 0.3s ease;
+  }
+
+  .btn--play-again {
+    transition: all 0.3s ease;
+  }
+
+  .btn--restart {
+    transition: all 0.3s ease;
+  }
+
+  .btn--back-to-choose-screen {
     transition: all 0.3s ease;
   }
 }
